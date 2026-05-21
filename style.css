@@ -1,46 +1,72 @@
-    html {
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      height: 100%;
       background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
       background-size: cover;
-      font-family: 'helvetica neue';
+      background-position: center;
+      font-family: 'helvetica neue', Arial, sans-serif;
       text-align: center;
+      color: #111;
       font-size: 10px;
     }
 
-    .body {
-      margin: 0;
-      font-size: 2rem;
+    body {
       display: flex;
-      flex: 1;
-      min-height: 10vh;
-      max-height: 60vh;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 1rem 0 0.5rem;
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: white;
+      text-shadow: 0 0 12px rgba(0,0,0,0.4);
+    }
+
+    .body {
+      width: 100%;
+      max-width: 42rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0;
     }
 
     .clock {
-      width: 30rem;
-      height: 30rem;
-      border: 20px solid white;
+      width: min(90vw, 30rem);
+      height: min(90vw, 30rem);
+      max-width: 34rem;
+      max-height: 34rem;
+      border: clamp(12px, 2vw, 20px) solid white;
       border-radius: 50%;
-      margin: 50px auto;
+      margin: 0 auto;
       position: relative;
-      padding: 2rem;
+      padding: clamp(1rem, 3vw, 2rem);
       box-shadow:
         0 0 0 4px rgba(0,0,0,0.1),
         inset 0 0 0 3px #EFEFEF,
         inset 0 0 10px black,
         0 0 10px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,0.88);
     }
 
     .clock-face {
       position: relative;
       width: 100%;
       height: 100%;
-      transform: translateY(-3px); /* account for the height of the clock hands */
+      transform: translateY(-3px);
     }
 
     .hand {
       width: 50%;
-      height: 6px;
+      height: clamp(4px, 0.7vw, 6px);
       background: black;
       position: absolute;
       top: 50%;
@@ -51,32 +77,44 @@
     }
 
     .number {
-  position: absolute;
-  font-size: 3rem;
-  font-weight: bold;
-  color: black;
-}
+      position: absolute;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: bold;
+      color: black;
+    }
 
-.number12 {
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+    .number12 {
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-.number3 {
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
+    .number3 {
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
-.number6 {
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+    .number6 {
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-.number9 {
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
+    .number9 {
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @media (max-width: 420px) {
+      .clock {
+        width: 92vw;
+        height: 92vw;
+        padding: 1rem;
+      }
+
+      .hand {
+        width: 48%;
+      }
+    }
