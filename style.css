@@ -48,3 +48,34 @@
       transition: all 0.05s;
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
+
+    .number {
+  position: absolute;
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+}
+
+.number12 {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.number3 {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.number6 {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.number9 {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
