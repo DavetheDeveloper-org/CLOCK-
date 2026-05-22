@@ -1,120 +1,476 @@
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      height: 100%;
-      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
-      background-size: cover;
-      background-position: center;
-      font-family: 'helvetica neue', Arial, sans-serif;
-      text-align: center;
-      color: #111;
-      font-size: 10px;
-    }
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
 
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-    }
+    background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+    background-size: cover;
+    background-position: center;
 
-    h1 {
-      margin: 1rem 0 0.5rem;
-      font-size: clamp(2rem, 5vw, 4rem);
-      color: white;
-      text-shadow: 0 0 12px rgba(0,0,0,0.4);
-    }
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
 
-    .body {
-      width: 100%;
-      max-width: 42rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem 0;
-    }
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+}
+
+
+h1 {
+    color: white;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    margin-bottom: 2rem;
+
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+
+.clock {
+    width: min(60vw, 27rem);
+    height: min(90vw, 35rem);
+
+    border: clamp(10px, 2vw, 20px) solid white;
+    border-radius: 50%;
+
+    position: relative;
+
+    padding: 2rem;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 0 0 4px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.hand {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform-origin: 0% 50%;
+    transform: rotate(-90deg);
+
+    border-radius: 10px;
+
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hour-hand {
+    width: 28%;
+    height: 7px;
+
+    background: black;
+}
+
+
+.min-hand {
+    width: 38%;
+    height: 5px;
+
+    background: black;
+}
+
+
+.second-hand {
+    width: 45%;
+    height: 3px;
+
+    background: red;
+}
+
+
+.clock-face::after {
+    content: "";
+
+    width: clamp(12px, 2vw, 18px);
+    height: clamp(12px, 2vw, 18px);
+
+    background: black;
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 100;
+}
+
+
+.number {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: bold;
+
+    color: black;
+}
+
+
+.number12 {
+    transform: rotate(0deg);
+}
+
+.number1 {
+    transform: rotate(30deg);
+}
+
+.number2 {
+    transform: rotate(60deg);
+}
+
+.number3 {
+    transform: rotate(90deg);
+}
+
+.number4 {
+    transform: rotate(120deg);
+}
+
+.number5 {
+    transform: rotate(150deg);
+}
+
+.number6 {
+    transform: rotate(180deg);
+}
+
+.number7 {
+    transform: rotate(210deg);
+}
+
+.number8 {
+    transform: rotate(240deg);
+}
+
+.number9 {
+    transform: rotate(270deg);
+}
+
+.number10 {
+    transform: rotate(300deg);
+}
+
+.number11 {
+    transform: rotate(330deg);
+}
+
+
+.number span {
+    display: block;
+
+    padding-top: 12px;
+
+    transform:
+        rotate(calc(-1 * var(--rotation)));
+}
+
+/* MINUTE MARKS */
+
+.mark {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* THE LITTLE LINE */
+
+.mark::before {
+    content: "";
+
+    width: 2px;
+    height: 10px;
+
+    background: black;
+
+    margin-top: 5px;
+}
+
+/* ROTATE EACH MARK */
+
+.mark1 {
+    transform: rotate(6deg);
+}
+
+.mark2 {
+    transform: rotate(12deg);
+}
+
+.mark3 {
+    transform: rotate(18deg);
+}
+
+.mark4 {
+    transform: rotate(24deg);
+}
+
+.mark5 {
+    transform: rotate(30deg);
+}
+
+.mark6 {
+    transform: rotate(36deg);
+}
+
+.mark7 {
+    transform: rotate(42deg);
+}
+
+.mark8 {
+    transform: rotate(48deg);
+}
+
+.mark9 {
+    transform: rotate(54deg);
+}
+
+.mark10 {
+    transform: rotate(60deg);
+}
+
+.mark11 {
+    transform: rotate(66deg);
+}
+
+.mark12 {
+    transform: rotate(72deg);
+}
+
+.mark13 {
+    transform: rotate(78deg);
+}
+
+.mark14 {
+    transform: rotate(84deg);
+}
+
+.mark15 {
+    transform: rotate(90deg);
+}
+
+.mark16 {
+    transform: rotate(96deg);
+}
+
+.mark17 {
+    transform: rotate(102deg);
+}
+
+.mark18 {
+    transform: rotate(108deg);
+}
+
+.mark19 {
+    transform: rotate(114deg);
+}
+
+.mark20 {
+    transform: rotate(120deg);
+}
+
+.mark21 {
+    transform: rotate(126deg);
+}
+
+.mark22 {
+    transform: rotate(132deg);
+}
+
+.mark23 {
+    transform: rotate(138deg);
+}
+
+.mark24 {
+    transform: rotate(144deg);
+}
+
+.mark25 {
+    transform: rotate(150deg);
+}
+
+.mark26 {
+    transform: rotate(156deg);
+}
+
+.mark27 {
+    transform: rotate(162deg);
+}
+
+.mark28 {
+    transform: rotate(168deg);
+}
+
+.mark29 {
+    transform: rotate(174deg);
+}
+
+.mark30 {
+    transform: rotate(180deg);
+}
+
+.mark31 {
+    transform: rotate(186deg);
+}
+
+.mark32 {
+    transform: rotate(192deg);
+}
+
+.mark33 {
+    transform: rotate(198deg);
+}
+
+.mark34 {
+    transform: rotate(204deg);
+}
+
+.mark35 {
+    transform: rotate(210deg);
+}
+
+.mark36 {
+    transform: rotate(216deg);
+}
+
+.mark37 {
+    transform: rotate(222deg);
+}
+
+.mark38 {
+    transform: rotate(228deg);
+}
+
+.mark39 {
+    transform: rotate(234deg);
+}
+
+.mark40 {
+    transform: rotate(240deg);
+}
+
+.mark41 {
+    transform: rotate(246deg);
+}
+
+.mark42 {
+    transform: rotate(252deg);
+}
+
+.mark43 {
+    transform: rotate(258deg);
+}
+
+.mark44 {
+    transform: rotate(264deg);
+}
+
+.mark45 {
+    transform: rotate(270deg);
+}
+
+.mark46 {
+    transform: rotate(276deg);
+}
+
+.mark47 {
+    transform: rotate(282deg);
+}
+
+.mark48 {
+    transform: rotate(288deg);
+}
+
+.mark49 {
+    transform: rotate(294deg);
+}
+
+.mark50 {
+    transform: rotate(300deg);
+}
+
+.mark51 {
+    transform: rotate(306deg);
+}
+
+.mark52 {
+    transform: rotate(312deg);
+}
+
+.mark53 {
+    transform: rotate(318deg);
+}
+
+.mark54 {
+    transform: rotate(324deg);
+}
+
+.mark55 {
+    transform: rotate(330deg);
+}
+
+.mark56 {
+    transform: rotate(336deg);
+}
+
+.mark57 {
+    transform: rotate(342deg);
+}
+
+.mark58 {
+    transform: rotate(348deg);
+}
+
+.mark59 {
+    transform: rotate(354deg);
+}
+
+.mark60 {
+    transform: rotate(360deg);
+}
+
+@media (max-width: 420px) {
 
     .clock {
-      width: min(90vw, 30rem);
-      height: min(90vw, 30rem);
-      max-width: 34rem;
-      max-height: 34rem;
-      border: clamp(12px, 2vw, 20px) solid white;
-      border-radius: 50%;
-      margin: 0 auto;
-      position: relative;
-      padding: clamp(1rem, 3vw, 2rem);
-      box-shadow:
-        0 0 0 4px rgba(0,0,0,0.1),
-        inset 0 0 0 3px #EFEFEF,
-        inset 0 0 10px black,
-        0 0 10px rgba(0,0,0,0.2);
-      background: rgba(255,255,255,0.88);
-    }
-
-    .clock-face {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform: translateY(-3px);
-    }
-
-    .hand {
-      width: 50%;
-      height: clamp(4px, 0.7vw, 6px);
-      background: black;
-      position: absolute;
-      top: 50%;
-      transform-origin: 100%;
-      transform: rotate(90deg);
-      transition: all 0.05s;
-      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
-    }
-
-    .number {
-      position: absolute;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: bold;
-      color: black;
-    }
-
-    .number12 {
-      top: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .number3 {
-      right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .number6 {
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .number9 {
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    @media (max-width: 420px) {
-      .clock {
         width: 92vw;
         height: 92vw;
-        padding: 1rem;
-      }
 
-      .hand {
-        width: 48%;
-      }
+        padding: 1rem;
     }
+
+}

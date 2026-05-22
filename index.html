@@ -1,58 +1,152 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CLOCK 🕰️</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="https://fav.farm/✅" />
 </head>
 
-
 <body>
-    <h1 style="display: block; font-size: 40px;">CLOCK 🕰️</h1> 
-    <div class="body">
+    <h1>CLOCK 🕰️</h1>
 
-        <div class="clock">
-            <div class="clock-face">
-                <div class="number number12">12</div>
-                <div class="number number3">3</div>
-                <div class="number number6">6</div>
-                <div class="number number9">9</div>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="number number12" style="--rotation: 0deg">
+                <span>12</span>
+            </div>
+            <div class="number number1" style="--rotation: 30deg">
+                <span>1</span>
+            </div>
+            <div class="number number2" style="--rotation: 60deg">
+                <span>2</span>
+            </div>
+            <div class="number number3" style="--rotation: 90deg">
+                <span>3</span>
+            </div>
+            <div class="number number4" style="--rotation: 120deg">
+                <span>4</span>
+            </div>
+            <div class="number number5" style="--rotation: 150deg">
+                <span>5</span>
+            </div>
+            <div class="number number6" style="--rotation: 180deg">
+                <span>6</span>
+            </div>
+            <div class="number number7" style="--rotation: 210deg">
+                <span>7</span>
+            </div>
+            <div class="number number8" style="--rotation: 240deg">
+                <span>8</span>
+            </div>
+            <div class="number number9" style="--rotation: 270deg">
+                <span>9</span>
+            </div>
+            <div class="number number10" style="--rotation: 300deg">
+                <span>10</span>
+            </div>
+            <div class="number number11" style="--rotation: 330deg">
+                <span>11</span>
+            </div>
 
-                <div class="hand hour-hand"></div>
-                <div class="hand min-hand"></div>
-                <div class="hand second-hand"></div>
+            <div class="mark mark1"></div>
+            <div class="mark mark2"></div>
+            <div class="mark mark3"></div>
+            <div class="mark mark4"></div>
+            <div class="mark mark5"></div>
+            <div class="mark mark6"></div>
+            <div class="mark mark7"></div>
+            <div class="mark mark8"></div>
+            <div class="mark mark9"></div>
+            <div class="mark mark10"></div>
+            <div class="mark mark11"></div>
+            <div class="mark mark12"></div>
+            <div class="mark mark13"></div>
+            <div class="mark mark14"></div>
+            <div class="mark mark15"></div>
+            <div class="mark mark16"></div>
+            <div class="mark mark17"></div>
+            <div class="mark mark18"></div>
+            <div class="mark mark19"></div>
+            <div class="mark mark20"></div>
+            <div class="mark mark21"></div>
+            <div class="mark mark22"></div>
+            <div class="mark mark23"></div>
+            <div class="mark mark24"></div>
+            <div class="mark mark25"></div>
+            <div class="mark mark26"></div>
+            <div class="mark mark27"></div>
+            <div class="mark mark28"></div>
+            <div class="mark mark29"></div>
+            <div class="mark mark30"></div>
+            <div class="mark mark31"></div>
+            <div class="mark mark32"></div>
+            <div class="mark mark33"></div>
+            <div class="mark mark34"></div>
+            <div class="mark mark35"></div>
+            <div class="mark mark36"></div>
+            <div class="mark mark37"></div>
+            <div class="mark mark38"></div>
+            <div class="mark mark39"></div>
+            <div class="mark mark40"></div>
+            <div class="mark mark41"></div>
+            <div class="mark mark42"></div>
+            <div class="mark mark43"></div>
+            <div class="mark mark44"></div>
+            <div class="mark mark45"></div>
+            <div class="mark mark46"></div>
+            <div class="mark mark47"></div>
+            <div class="mark mark48"></div>
+            <div class="mark mark49"></div>
+            <div class="mark mark50"></div>
+            <div class="mark mark51"></div>
+            <div class="mark mark52"></div>
+            <div class="mark mark53"></div>
+            <div class="mark mark54"></div>
+            <div class="mark mark55"></div>
+            <div class="mark mark56"></div>
+            <div class="mark mark57"></div>
+            <div class="mark mark58"></div>
+            <div class="mark mark59"></div>
+            <div class="mark mark60"></div>
+
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand second-hand"></div>
         </div>
     </div>
 
-    </div>
     <script>
-
-        const secondHand = document.querySelector('.second-hand');
-        const minsHand = document.querySelector('.min-hand');
-        const hourHand = document.querySelector('.hour-hand');
+        const secondHand = document.querySelector(".second-hand");
+        const minsHand = document.querySelector(".min-hand");
+        const hourHand = document.querySelector(".hour-hand");
 
         function setDate() {
             const now = new Date();
 
             const seconds = now.getSeconds();
-            const secondsDegrees = ((seconds / 60) * 360) + 90;
+            const secondsDegrees = (seconds / 60) * 360 - 90;
+
             secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
             const mins = now.getMinutes();
-            const minsDegrees = ((mins / 60) * 360) + 90;
+            const minsDegrees = (mins / 60) * 360 - 90;
+
             minsHand.style.transform = `rotate(${minsDegrees}deg)`;
 
             const hours = now.getHours() % 12;
-            const hoursDegrees = ((hours / 12) * 360) + ((mins / 60) * 30) + 90;
+
+            const hoursDegrees = (hours / 12) * 360 + (mins / 60) * 30 - 90;
+
             hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
         }
 
         setInterval(setDate, 1000);
 
         setDate();
-
     </script>
 </body>
 
